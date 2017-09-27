@@ -79,6 +79,7 @@ $(function() {
         it('is menu shown', function() {
             $(".menu-icon-link").click();
             expect($('body').hasClass('menu-hidden')).toBe(false);
+            $(".menu-icon-link").click();
         });
     });
 
@@ -86,9 +87,7 @@ $(function() {
     describe('Initial Entries', function() {
 
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -98,7 +97,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('after call is done, there is atleast one entry', function() {
-            expect($('.entry').length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
